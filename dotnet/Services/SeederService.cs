@@ -17,9 +17,9 @@ public class SeederService
     connection.Open();
 
     Console.WriteLine("Dropping tables if they exist...");
-    connection.Execute("DROP TABLE IF EXISTS appointment");
-    connection.Execute("DROP TABLE IF EXISTS patient");
-    connection.Execute("DROP TABLE IF EXISTS location");
+    connection.Execute("DROP TABLE IF EXISTS appointment CASCADE");
+    connection.Execute("DROP TABLE IF EXISTS patient CASCADE");
+    connection.Execute("DROP TABLE IF EXISTS location CASCADE");
 
     Console.WriteLine("Creating tables...");
     connection.Execute(@"
