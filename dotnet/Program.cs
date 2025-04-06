@@ -1,5 +1,14 @@
-﻿string connectionString = "Host=db.dzrhyyhptitzewolflga.supabase.co;Port=5432;Username=postgres;Password=Spartanpbch2!;Database=postgres;SSL Mode=Require;Trust Server Certificate=true;";
+﻿using DotNetEnv;
 
+Env.Load(".env.local");
+
+string connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING");
+
+if (string.IsNullOrEmpty(connectionString))
+{
+    Console.WriteLine("CONNECTION_STRING is not defined in .env.local.");
+    return;
+}
 int patientCount = 10;
 bool reset = false;
 
