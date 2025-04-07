@@ -3,14 +3,14 @@ import { faker } from "@faker-js/faker";
 import minimist from "minimist";
 import dotenv from 'dotenv'
 
-dotenv.config();
+dotenv.config({ path: '.env.local' })
 const args = minimist(process.argv.slice(2))
 const reset = args.reset || false
 const recordCount = parseInt(args.records) || 10
 
 const supabase = createClient(
-    process.env.SUPABASE_URL,
-    process.env.SUPABASE_ANON_KEY
+    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 )
 
 async function resetTables()
